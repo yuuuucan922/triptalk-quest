@@ -247,7 +247,6 @@ function renderLesson() {
   elements.questionBox.innerHTML = `
     <span class="speaker">${question.speaker || "Cafe lesson"}</span>
     <div class="prompt">${question.prompt}</div>
-    <div class="hint">${question.hint}</div>
   `;
 
   elements.choiceGrid.innerHTML = "";
@@ -296,11 +295,11 @@ function submitAnswer(rawAnswer) {
     state.xp = Math.min(120, state.xp + mode.xp);
     state.clears += 1;
     addPhrase(question.phrase);
-    showFeedback("good", `+${mode.xp} XP`, `正解。${question.phrase}`);
+    showFeedback("good", `+${mode.xp} XP`, `正解: ${question.phrase} / 意味: ${question.hint}`);
     goNextQuestion();
   } else {
     state.xp = Math.min(120, state.xp + 2);
-    showFeedback("try", "+2 XP", `惜しい。おすすめ表現: ${question.answer}`);
+    showFeedback("try", "+2 XP", "惜しい。ヒントなしでもう一度考えてみよう。");
   }
 
   saveProgress();
