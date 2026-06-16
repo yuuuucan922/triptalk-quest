@@ -131,6 +131,49 @@ const upgrades = [
     xp: 100,
     title: "Popular cafe",
     detail: "カップ棚とメニューが増えて人気店に。"
+  },
+  {
+    xp: 120,
+    title: "Forest master",
+    detail: "豆福が森のマスターバリスタに成長。"
+  }
+];
+
+const mamefukuLevels = [
+  {
+    level: 1,
+    minXp: 0,
+    title: "Cafe Apprentice",
+    image: "assets/characters/mamefuku/mamefuku-lv1.png",
+    alt: "Mamefuku cafe apprentice"
+  },
+  {
+    level: 2,
+    minXp: 30,
+    title: "Beginner Clerk",
+    image: "assets/characters/mamefuku/mamefuku-lv2.png",
+    alt: "Mamefuku beginner clerk"
+  },
+  {
+    level: 3,
+    minXp: 65,
+    title: "Beginner Barista",
+    image: "assets/characters/mamefuku/mamefuku-lv3.png",
+    alt: "Mamefuku beginner barista"
+  },
+  {
+    level: 4,
+    minXp: 100,
+    title: "Full Barista",
+    image: "assets/characters/mamefuku/mamefuku-lv4.png",
+    alt: "Mamefuku full barista"
+  },
+  {
+    level: 5,
+    minXp: 120,
+    title: "Forest Cafe Master",
+    image: "assets/characters/mamefuku/mamefuku-lv5.png",
+    alt: "Mamefuku forest cafe master"
   }
 ];
 
@@ -146,6 +189,7 @@ const elements = {
   totalXp: document.querySelector("#totalXp"),
   cafeStage: document.querySelector("#cafeStage"),
   barista: document.querySelector("#barista"),
+  mamefukuImage: document.querySelector("#mamefukuImage"),
   cafeLevelLabel: document.querySelector("#cafeLevelLabel"),
   baristaTitle: document.querySelector("#baristaTitle"),
   nextRewardText: document.querySelector("#nextRewardText"),
@@ -212,9 +256,7 @@ function unlockedCount() {
 }
 
 function cafeLevel() {
-  if (state.xp >= 100) return 3;
-  if (state.xp >= 30) return 2;
-  return 1;
+  return mamefukuLevels.reduce((current, level) => state.xp >= level.minXp ? level : current, mamefukuLevels[0]);
 }
 
 function renderModeTabs() {
@@ -333,9 +375,11 @@ function renderStats() {
   elements.itemCount.textContent = unlockedCount();
   elements.phraseCount.textContent = state.phrases.length;
   elements.nextRewardText.textContent = nextText;
-  elements.cafeLevelLabel.textContent = `Cafe Lv.${level}`;
-  elements.baristaTitle.textContent = level === 1 ? "Trainee Barista" : level === 2 ? "Lead Barista" : "Cafe Manager";
-  elements.cafeStage.className = `cafe-stage level-${level}`;
+  elements.cafeLevelLabel.textContent = `Mamefuku Lv.${level.level}`;
+  elements.baristaTitle.textContent = level.title;
+  elements.mamefukuImage.src = level.image;
+  elements.mamefukuImage.alt = level.alt;
+  elements.cafeStage.className = `cafe-stage level-${Math.min(level.level, 3)}`;
 }
 
 function renderUpgrades() {

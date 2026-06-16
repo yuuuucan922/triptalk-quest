@@ -274,71 +274,22 @@ h2 {
 .barista {
   position: absolute;
   left: 50%;
-  bottom: 84px;
-  width: 118px;
-  height: 186px;
+  bottom: 64px;
+  width: clamp(154px, 28vw, 238px);
+  height: clamp(154px, 28vw, 238px);
   transform: translateX(-50%);
-}
-
-.barista-hair {
-  position: absolute;
-  left: 24px;
-  top: 0;
-  width: 70px;
-  height: 52px;
-  border-radius: 36px 36px 18px 18px;
-  background: #3e2b24;
-}
-
-.barista-face {
-  position: absolute;
-  left: 25px;
-  top: 24px;
-  width: 68px;
-  height: 68px;
-  border: 4px solid var(--ink);
-  border-radius: 42% 42% 48% 48%;
-  background: #ffd8a8;
   display: grid;
-  place-items: center;
+  place-items: end center;
+  z-index: 2;
 }
 
-.barista-face span::before {
-  content: ":)";
-  font-weight: 900;
-}
-
-.barista-body {
-  position: absolute;
-  left: 18px;
-  right: 18px;
-  bottom: 0;
-  height: 104px;
-  border: 4px solid var(--ink);
-  border-radius: 26px 26px 8px 8px;
-  background: #f1f4ef;
-}
-
-.apron {
-  position: absolute;
-  left: 18px;
-  right: 18px;
-  bottom: 0;
-  height: 78px;
-  border-radius: 14px 14px 4px 4px;
-  background: var(--green);
-}
-
-.cafe-stage.level-2 .apron {
-  background: var(--rose);
-}
-
-.cafe-stage.level-3 .barista-body {
-  background: #253d58;
-}
-
-.cafe-stage.level-3 .apron {
-  background: var(--gold);
+.mamefuku-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 14px 0 rgba(63, 43, 31, 0.16));
 }
 
 .stage-label {
@@ -688,7 +639,10 @@ h2 {
   }
 
   .barista {
-    transform: translateX(-44%) scale(0.88);
+    bottom: 62px;
+    width: 168px;
+    height: 168px;
+    transform: translateX(-42%);
   }
 
   .mode-tabs,

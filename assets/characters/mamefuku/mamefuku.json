@@ -1,0 +1,36 @@
+{
+  "id": "mamefuku",
+  "name": "Mamefuku",
+  "levels": [
+    {
+      "level": 1,
+      "title": "Cafe Apprentice",
+      "minXp": 0,
+      "image": "assets/characters/mamefuku/mamefuku-lv1.png"
+    },
+    {
+      "level": 2,
+      "title": "Beginner Clerk",
+      "minXp": 30,
+      "image": "assets/characters/mamefuku/mamefuku-lv2.png"
+    },
+    {
+      "level": 3,
+      "title": "Beginner Barista",
+      "minXp": 65,
+      "image": "assets/characters/mamefuku/mamefuku-lv3.png"
+    },
+    {
+      "level": 4,
+      "title": "Full Barista",
+      "minXp": 100,
+      "image": "assets/characters/mamefuku/mamefuku-lv4.png"
+    },
+    {
+      "level": 5,
+      "title": "Forest Cafe Master",
+      "minXp": 120,
+      "image": "assets/characters/mamefuku/mamefuku-lv5.png"
+    }
+  ]
+}
