@@ -135,12 +135,14 @@ h2 {
     linear-gradient(#9bcbd4 0 34%, #f7dfb6 34% 78%, #b67c58 78% 100%);
 }
 
-.cafe-stage.level-2 {
+.cafe-stage.interior-2,
+.cafe-stage.interior-3 {
   background:
     linear-gradient(#9bcbd4 0 32%, #f4d5a7 32% 76%, #a66d4c 76% 100%);
 }
 
-.cafe-stage.level-3 {
+.cafe-stage.interior-4,
+.cafe-stage.interior-5 {
   background:
     linear-gradient(#8fc1cd 0 30%, #f2cd9b 30% 74%, #965f42 74% 100%);
 }
@@ -191,8 +193,10 @@ h2 {
   opacity: 0;
 }
 
-.cafe-stage.level-2 .shelf-right,
-.cafe-stage.level-3 .shelf-right {
+.cafe-stage.interior-2 .shelf-right,
+.cafe-stage.interior-3 .shelf-right,
+.cafe-stage.interior-4 .shelf-right,
+.cafe-stage.interior-5 .shelf-right {
   opacity: 1;
 }
 
@@ -209,37 +213,149 @@ h2 {
     var(--cream);
 }
 
-.machine {
+.drip-stand {
   position: absolute;
   right: 44px;
-  top: -54px;
-  width: 96px;
-  height: 70px;
+  top: -42px;
+  width: 78px;
+  height: 58px;
+  border: 4px solid var(--ink);
+  border-radius: 8px;
+  background: #efe0bf;
+}
+
+.drip-stand::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 9px;
+  width: 38px;
+  height: 18px;
+  border-radius: 8px 8px 3px 3px;
+  border: 3px solid var(--coffee);
+  background: transparent;
+}
+
+.drip-stand::after {
+  content: "";
+  position: absolute;
+  left: 24px;
+  bottom: 8px;
+  width: 30px;
+  height: 12px;
+  border-radius: 2px 2px 8px 8px;
+  background: var(--coffee);
+}
+
+.grinder,
+.coffee-machine,
+.espresso-machine {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.grinder {
+  right: 142px;
+  top: -50px;
+  width: 48px;
+  height: 66px;
+  border: 4px solid var(--ink);
+  border-radius: 8px;
+  background: #6f8f72;
+}
+
+.grinder::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: -24px;
+  width: 26px;
+  height: 28px;
+  border: 4px solid var(--ink);
+  border-radius: 16px 16px 6px 6px;
+  background: #d7c3a4;
+}
+
+.coffee-machine {
+  right: 38px;
+  top: -64px;
+  width: 104px;
+  height: 78px;
   border: 4px solid var(--ink);
   border-radius: 8px;
   background: #dce5e2;
 }
 
-.machine::before {
+.coffee-machine::before {
   content: "";
   position: absolute;
-  left: 22px;
-  top: 14px;
-  width: 50px;
+  left: 20px;
+  top: 15px;
+  width: 56px;
   height: 14px;
   border-radius: 999px;
   background: var(--ink);
 }
 
-.machine::after {
+.coffee-machine::after {
   content: "";
   position: absolute;
-  left: 34px;
+  left: 37px;
   bottom: -20px;
-  width: 28px;
+  width: 30px;
   height: 22px;
   border-radius: 0 0 8px 8px;
   background: var(--coffee);
+}
+
+.espresso-machine {
+  right: 18px;
+  top: -86px;
+  width: 172px;
+  height: 98px;
+  border: 5px solid var(--ink);
+  border-radius: 10px 10px 8px 8px;
+  background:
+    radial-gradient(circle at 24px 24px, #f5e6be 0 8px, transparent 9px),
+    linear-gradient(#bf4f4a 0 58%, #8d3735 59% 100%);
+  box-shadow: inset 0 -12px 0 rgba(0, 0, 0, 0.12);
+}
+
+.espresso-machine::before {
+  content: "";
+  position: absolute;
+  left: 52px;
+  right: 18px;
+  top: 24px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--ink);
+}
+
+.espresso-machine::after {
+  content: "";
+  position: absolute;
+  left: 68px;
+  bottom: -22px;
+  width: 64px;
+  height: 24px;
+  border-radius: 0 0 8px 8px;
+  background: var(--coffee);
+}
+
+.cafe-stage.interior-3 .grinder,
+.cafe-stage.interior-4 .grinder,
+.cafe-stage.interior-5 .grinder,
+.cafe-stage.interior-4 .coffee-machine,
+.cafe-stage.interior-5 .espresso-machine {
+  opacity: 1;
+}
+
+.cafe-stage.interior-4 .drip-stand,
+.cafe-stage.interior-5 .drip-stand,
+.cafe-stage.interior-5 .coffee-machine {
+  opacity: 0;
 }
 
 .pastries {
@@ -267,7 +383,9 @@ h2 {
   background: repeating-linear-gradient(90deg, #fff 0 18px, transparent 18px 28px);
 }
 
-.cafe-stage.level-3 .cup-row {
+.cafe-stage.interior-3 .cup-row,
+.cafe-stage.interior-4 .cup-row,
+.cafe-stage.interior-5 .cup-row {
   opacity: 1;
 }
 

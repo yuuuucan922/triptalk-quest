@@ -111,31 +111,36 @@ const modes = {
   }
 };
 
-const upgrades = [
+const interiorLevels = [
   {
-    xp: 0,
-    title: "Small counter",
-    detail: "小さなカウンターからスタート。"
+    level: 1,
+    clears: 0,
+    title: "Drip starter",
+    detail: "Simple drip coffee tools and a small counter."
   },
   {
-    xp: 30,
+    level: 2,
+    clears: 3,
     title: "Table seats",
-    detail: "お客さんが座れるテーブル席を追加。"
+    detail: "Adds guest seating and more cups."
   },
   {
-    xp: 65,
-    title: "Barista uniform",
-    detail: "バリスタの服装が店長スタイルに変化。"
+    level: 3,
+    clears: 7,
+    title: "Coffee grinder",
+    detail: "Adds a grinder and coffee bean tools."
   },
   {
-    xp: 100,
-    title: "Popular cafe",
-    detail: "カップ棚とメニューが増えて人気店に。"
+    level: 4,
+    clears: 12,
+    title: "Coffee machine",
+    detail: "Adds a compact coffee machine."
   },
   {
-    xp: 120,
-    title: "Forest master",
-    detail: "豆福が森のマスターバリスタに成長。"
+    level: 5,
+    clears: 18,
+    title: "La Marzocco-style espresso machine",
+    detail: "Adds a large professional espresso machine as the cafe centerpiece."
   }
 ];
 
@@ -252,11 +257,15 @@ function normalize(value) {
 }
 
 function unlockedCount() {
-  return upgrades.filter((upgrade) => state.xp >= upgrade.xp).length;
+  return interiorLevels.filter((level) => state.clears >= level.clears).length;
 }
 
-function cafeLevel() {
+function mamefukuLevel() {
   return mamefukuLevels.reduce((current, level) => state.xp >= level.minXp ? level : current, mamefukuLevels[0]);
+}
+
+function interiorLevel() {
+  return interiorLevels.reduce((current, level) => state.clears >= level.clears ? level : current, interiorLevels[0]);
 }
 
 function renderModeTabs() {
@@ -364,9 +373,10 @@ function showFeedback(kind, title, message) {
 }
 
 function renderStats() {
-  const level = cafeLevel();
-  const nextUpgrade = upgrades.find((upgrade) => state.xp < upgrade.xp);
-  const nextText = nextUpgrade ? `Next: ${nextUpgrade.title} at ${nextUpgrade.xp} XP` : "All cafe upgrades unlocked";
+  const characterLevel = mamefukuLevel();
+  const cafeInterior = interiorLevel();
+  const nextUpgrade = interiorLevels.find((level) => state.clears < level.clears);
+  const nextText = nextUpgrade ? `Next: ${nextUpgrade.title} at ${nextUpgrade.clears} clears` : "All interior upgrades unlocked";
 
   elements.totalXp.textContent = state.xp;
   elements.xpMeterText.textContent = `${state.xp} / 120`;
@@ -375,22 +385,22 @@ function renderStats() {
   elements.itemCount.textContent = unlockedCount();
   elements.phraseCount.textContent = state.phrases.length;
   elements.nextRewardText.textContent = nextText;
-  elements.cafeLevelLabel.textContent = `Mamefuku Lv.${level.level}`;
-  elements.baristaTitle.textContent = level.title;
-  elements.mamefukuImage.src = level.image;
-  elements.mamefukuImage.alt = level.alt;
-  elements.cafeStage.className = `cafe-stage level-${Math.min(level.level, 3)}`;
+  elements.cafeLevelLabel.textContent = `Interior Lv.${cafeInterior.level} / Mamefuku Lv.${characterLevel.level}`;
+  elements.baristaTitle.textContent = characterLevel.title;
+  elements.mamefukuImage.src = characterLevel.image;
+  elements.mamefukuImage.alt = characterLevel.alt;
+  elements.cafeStage.className = `cafe-stage interior-${cafeInterior.level}`;
 }
 
 function renderUpgrades() {
   elements.upgradeList.innerHTML = "";
 
-  upgrades.forEach((upgrade) => {
-    const unlocked = state.xp >= upgrade.xp;
+  interiorLevels.forEach((upgrade) => {
+    const unlocked = state.clears >= upgrade.clears;
     const item = document.createElement("div");
     item.className = `upgrade-item ${unlocked ? "unlocked" : ""}`;
     item.innerHTML = `
-      <strong>${unlocked ? "Unlocked" : `${upgrade.xp} XP`} - ${upgrade.title}</strong>
+      <strong>${unlocked ? "Unlocked" : `${upgrade.clears} clears`} - Lv.${upgrade.level} ${upgrade.title}</strong>
       <span>${upgrade.detail}</span>
     `;
     elements.upgradeList.appendChild(item);
