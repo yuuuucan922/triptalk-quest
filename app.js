@@ -69,6 +69,134 @@ const modes = {
         answer: "おすすめする",
         choices: ["おすすめする", "支払う", "温める"],
         phrase: "What do you recommend?"
+      },
+      {
+        type: "choice",
+        prompt: "menu",
+        hint: "注文前に見る一覧",
+        answer: "メニュー",
+        choices: ["メニュー", "財布", "出口"],
+        phrase: "Could I see the menu?"
+      },
+      {
+        type: "choice",
+        prompt: "table",
+        hint: "座って飲食する場所",
+        answer: "テーブル",
+        choices: ["テーブル", "牛乳", "レシート"],
+        phrase: "Is this table free?"
+      },
+      {
+        type: "choice",
+        prompt: "small",
+        hint: "小さいサイズ",
+        answer: "小さい",
+        choices: ["小さい", "熱い", "甘い"],
+        phrase: "Small, please."
+      },
+      {
+        type: "choice",
+        prompt: "medium",
+        hint: "中くらいのサイズ",
+        answer: "中くらい",
+        choices: ["中くらい", "現金", "氷"],
+        phrase: "Medium, please."
+      },
+      {
+        type: "choice",
+        prompt: "large",
+        hint: "大きいサイズ",
+        answer: "大きい",
+        choices: ["大きい", "少ない", "冷たい"],
+        phrase: "Large, please."
+      },
+      {
+        type: "choice",
+        prompt: "iced",
+        hint: "冷たい飲み物",
+        answer: "アイス",
+        choices: ["アイス", "店内", "おすすめ"],
+        phrase: "Iced, please."
+      },
+      {
+        type: "choice",
+        prompt: "hot",
+        hint: "温かい飲み物",
+        answer: "ホット",
+        choices: ["ホット", "席", "袋"],
+        phrase: "Hot, please."
+      },
+      {
+        type: "choice",
+        prompt: "cash",
+        hint: "カードではなく現金",
+        answer: "現金",
+        choices: ["現金", "レシート", "水"],
+        phrase: "Can I pay in cash?"
+      },
+      {
+        type: "choice",
+        prompt: "card",
+        hint: "クレジットカードなど",
+        answer: "カード",
+        choices: ["カード", "砂糖", "席"],
+        phrase: "Can I pay by card?"
+      },
+      {
+        type: "choice",
+        prompt: "wifi",
+        hint: "インターネット接続",
+        answer: "Wi-Fi",
+        choices: ["Wi-Fi", "牛乳", "紙ナプキン"],
+        phrase: "Do you have Wi-Fi?"
+      },
+      {
+        type: "choice",
+        prompt: "password",
+        hint: "Wi-Fiにつなぐための言葉",
+        answer: "パスワード",
+        choices: ["パスワード", "会計", "氷"],
+        phrase: "What is the Wi-Fi password?"
+      },
+      {
+        type: "choice",
+        prompt: "restroom",
+        hint: "トイレ",
+        answer: "トイレ",
+        choices: ["トイレ", "注文", "砂糖"],
+        phrase: "Where is the restroom?"
+      },
+      {
+        type: "choice",
+        prompt: "napkin",
+        hint: "口や手を拭く紙",
+        answer: "ナプキン",
+        choices: ["ナプキン", "おすすめ", "席"],
+        phrase: "Could I have a napkin?"
+      },
+      {
+        type: "choice",
+        prompt: "straw",
+        hint: "飲み物を飲む細い管",
+        answer: "ストロー",
+        choices: ["ストロー", "現金", "メニュー"],
+        phrase: "Could I have a straw?"
+      },
+      {
+        type: "choice",
+        prompt: "refill",
+        hint: "おかわり",
+        answer: "おかわり",
+        choices: ["おかわり", "持ち帰り", "温める"],
+        phrase: "Can I get a refill?"
+      },
+      {
+        type: "choice",
+        prompt: "reservation",
+        hint: "席などを前もって取ること",
+        answer: "予約",
+        choices: ["予約", "砂糖", "氷"],
+        phrase: "Do I need a reservation?"
       }
     ]
   },
@@ -126,6 +254,102 @@ const modes = {
         answer: "Could I have a receipt?",
         accepted: ["could i have a receipt", "can i have a receipt", "may i have a receipt"],
         phrase: "Could I have a receipt?"
+      },
+      {
+        type: "text",
+        prompt: "店内でお願いします。",
+        hint: "For here, please. を使う",
+        answer: "For here, please.",
+        accepted: ["for here please", "here please", "for here"],
+        phrase: "For here, please."
+      },
+      {
+        type: "text",
+        prompt: "小さいサイズでお願いします。",
+        hint: "Small, please. を使う",
+        answer: "Small, please.",
+        accepted: ["small please", "a small please", "small size please"],
+        phrase: "Small, please."
+      },
+      {
+        type: "text",
+        prompt: "アイスでお願いします。",
+        hint: "Iced, please. を使う",
+        answer: "Iced, please.",
+        accepted: ["iced please", "i'll have it iced", "i will have it iced"],
+        phrase: "Iced, please."
+      },
+      {
+        type: "text",
+        prompt: "カードで払えますか？",
+        hint: "Can I pay by card? を使う",
+        answer: "Can I pay by card?",
+        accepted: ["can i pay by card", "could i pay by card", "do you take cards"],
+        phrase: "Can I pay by card?"
+      },
+      {
+        type: "text",
+        prompt: "Wi-Fiはありますか？",
+        hint: "Do you have ... ? を使う",
+        answer: "Do you have Wi-Fi?",
+        accepted: ["do you have wifi", "do you have wi-fi", "is there wifi", "is there wi-fi"],
+        phrase: "Do you have Wi-Fi?"
+      },
+      {
+        type: "text",
+        prompt: "Wi-Fiのパスワードは何ですか？",
+        hint: "What is ... ? を使う",
+        answer: "What is the Wi-Fi password?",
+        accepted: ["what is the wifi password", "what is the wi-fi password", "wifi password", "wi-fi password"],
+        phrase: "What is the Wi-Fi password?"
+      },
+      {
+        type: "text",
+        prompt: "トイレはどこですか？",
+        hint: "Where is ... ? を使う",
+        answer: "Where is the restroom?",
+        accepted: ["where is the restroom", "where is the bathroom", "where is the toilet"],
+        phrase: "Where is the restroom?"
+      },
+      {
+        type: "text",
+        prompt: "ナプキンをもらえますか？",
+        hint: "Could I have ... ? を使う",
+        answer: "Could I have a napkin?",
+        accepted: ["could i have a napkin", "can i have a napkin", "may i have a napkin"],
+        phrase: "Could I have a napkin?"
+      },
+      {
+        type: "text",
+        prompt: "ストローをもらえますか？",
+        hint: "Could I have ... ? を使う",
+        answer: "Could I have a straw?",
+        accepted: ["could i have a straw", "can i have a straw", "may i have a straw"],
+        phrase: "Could I have a straw?"
+      },
+      {
+        type: "text",
+        prompt: "これはいくらですか？",
+        hint: "How much is ... ? を使う",
+        answer: "How much is this?",
+        accepted: ["how much is this", "how much does this cost", "what is the price"],
+        phrase: "How much is this?"
+      },
+      {
+        type: "text",
+        prompt: "少し待ってもらえますか？",
+        hint: "Could you give me ... ? を使う",
+        answer: "Could you give me a moment?",
+        accepted: ["could you give me a moment", "give me a moment", "one moment please"],
+        phrase: "Could you give me a moment?"
+      },
+      {
+        type: "text",
+        prompt: "おかわりできますか？",
+        hint: "Can I get ... ? を使う",
+        answer: "Can I get a refill?",
+        accepted: ["can i get a refill", "could i get a refill", "refill please"],
+        phrase: "Can I get a refill?"
       }
     ]
   },
@@ -189,6 +413,114 @@ const modes = {
         answer: "Can I pay by card?",
         accepted: ["can i pay by card", "could i pay by card", "do you take cards", "card please"],
         phrase: "Can I pay by card?"
+      },
+      {
+        type: "text",
+        speaker: "Barista",
+        prompt: "Do you need a receipt?",
+        hint: "レシートがほしいと答える",
+        answer: "Yes, please.",
+        accepted: ["yes please", "yes a receipt please", "could i have a receipt"],
+        phrase: "Yes, please."
+      },
+      {
+        type: "text",
+        speaker: "Barista",
+        prompt: "Do you want room for milk?",
+        hint: "ミルクを入れるスペースがほしいと答える",
+        answer: "Yes, please.",
+        accepted: ["yes please", "yes room for milk please", "a little room please"],
+        phrase: "Yes, please."
+      },
+      {
+        type: "text",
+        speaker: "Barista",
+        prompt: "What kind of milk would you like?",
+        hint: "オーツミルクをお願いする",
+        answer: "Oat milk, please.",
+        accepted: ["oat milk please", "with oat milk", "can i get oat milk"],
+        phrase: "Oat milk, please."
+      },
+      {
+        type: "text",
+        speaker: "Barista",
+        prompt: "Would you like sugar?",
+        hint: "砂糖少なめでお願いする",
+        answer: "Less sugar, please.",
+        accepted: ["less sugar please", "a little sugar please", "not too sweet please"],
+        phrase: "Less sugar, please."
+      },
+      {
+        type: "text",
+        speaker: "Barista",
+        prompt: "Can I get your name?",
+        hint: "名前を伝える。例: My name is Yuki.",
+        answer: "My name is Yuki.",
+        accepted: ["my name is", "i'm", "i am"],
+        phrase: "My name is Yuki."
+      },
+      {
+        type: "text",
+        speaker: "Barista",
+        prompt: "It will be ready in five minutes.",
+        hint: "ありがとうと答える",
+        answer: "Thank you.",
+        accepted: ["thank you", "thanks", "sounds good"],
+        phrase: "Thank you."
+      },
+      {
+        type: "text",
+        speaker: "Barista",
+        prompt: "Do you need a bag?",
+        hint: "袋がほしいと答える",
+        answer: "Yes, please.",
+        accepted: ["yes please", "a bag please", "yes a bag please"],
+        phrase: "Yes, please."
+      },
+      {
+        type: "text",
+        speaker: "Barista",
+        prompt: "We are out of oat milk. Is soy milk okay?",
+        hint: "大丈夫と答える",
+        answer: "Soy milk is fine.",
+        accepted: ["soy milk is fine", "that's fine", "that is fine", "soy milk is ok", "soy milk is okay"],
+        phrase: "Soy milk is fine."
+      },
+      {
+        type: "text",
+        speaker: "Barista",
+        prompt: "Do you want anything to eat?",
+        hint: "クロワッサンをお願いする",
+        answer: "A croissant, please.",
+        accepted: ["a croissant please", "croissant please", "i'll have a croissant", "i will have a croissant"],
+        phrase: "A croissant, please."
+      },
+      {
+        type: "text",
+        speaker: "Barista",
+        prompt: "Is everything okay?",
+        hint: "大丈夫と答える",
+        answer: "Yes, everything is good.",
+        accepted: ["everything is good", "yes everything is good", "it's good", "it is good"],
+        phrase: "Yes, everything is good."
+      },
+      {
+        type: "text",
+        speaker: "Barista",
+        prompt: "We close at six.",
+        hint: "何時に閉まるか確認する",
+        answer: "What time do you close?",
+        accepted: ["what time do you close", "when do you close", "what time are you closing"],
+        phrase: "What time do you close?"
+      },
+      {
+        type: "text",
+        speaker: "Barista",
+        prompt: "The Wi-Fi password is on the receipt.",
+        hint: "ありがとうと答える",
+        answer: "Thank you.",
+        accepted: ["thank you", "thanks", "thank you very much"],
+        phrase: "Thank you."
       }
     ]
   }
@@ -278,6 +610,7 @@ const mamefukuLevels = [
 const state = {
   mode: "vocabulary",
   questionIndex: 0,
+  questionOrders: {},
   xp: 0,
   clears: 0,
   phrases: []
@@ -339,8 +672,35 @@ function currentMode() {
   return modes[state.mode];
 }
 
+function shuffleArray(items) {
+  const shuffled = [...items];
+  for (let index = shuffled.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [shuffled[index], shuffled[swapIndex]] = [shuffled[swapIndex], shuffled[index]];
+  }
+  return shuffled;
+}
+
+function buildQuestionOrder(modeKey, previousQuestionIndex = -1) {
+  const order = shuffleArray(modes[modeKey].questions.map((_, index) => index));
+  if (order.length > 1 && order[0] === previousQuestionIndex) {
+    [order[0], order[1]] = [order[1], order[0]];
+  }
+  state.questionOrders[modeKey] = order;
+  state.questionIndex = 0;
+}
+
+function ensureQuestionOrder(modeKey) {
+  const order = state.questionOrders[modeKey];
+  if (!order || order.length !== modes[modeKey].questions.length) {
+    buildQuestionOrder(modeKey);
+  }
+}
+
 function currentQuestion() {
-  return currentMode().questions[state.questionIndex];
+  ensureQuestionOrder(state.mode);
+  const order = state.questionOrders[state.mode];
+  return currentMode().questions[order[state.questionIndex]];
 }
 
 function normalize(value) {
@@ -374,6 +734,7 @@ function renderModeTabs() {
     button.addEventListener("click", () => {
       state.mode = key;
       state.questionIndex = 0;
+      ensureQuestionOrder(key);
       renderLesson();
     });
     elements.modeTabs.appendChild(button);
@@ -397,7 +758,7 @@ function renderLesson() {
 
   elements.choiceGrid.innerHTML = "";
   if (question.type === "choice") {
-    question.choices.forEach((choice) => {
+    shuffleArray(question.choices).forEach((choice) => {
       const button = document.createElement("button");
       button.type = "button";
       button.textContent = choice;
@@ -470,7 +831,12 @@ function submitAnswer(rawAnswer) {
 function goNextQuestion() {
   window.setTimeout(() => {
     const mode = currentMode();
-    state.questionIndex = (state.questionIndex + 1) % mode.questions.length;
+    const order = state.questionOrders[state.mode];
+    const currentQuestionIndex = order[state.questionIndex];
+    state.questionIndex += 1;
+    if (state.questionIndex >= mode.questions.length) {
+      buildQuestionOrder(state.mode, currentQuestionIndex);
+    }
     renderLesson();
   }, 650);
 }
@@ -574,6 +940,7 @@ elements.resetButton.addEventListener("click", () => {
   localStorage.removeItem("tripTalkCafe");
   state.mode = "vocabulary";
   state.questionIndex = 0;
+  state.questionOrders = {};
   state.xp = 0;
   state.clears = 0;
   state.phrases = [];
