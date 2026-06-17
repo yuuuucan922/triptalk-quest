@@ -608,7 +608,7 @@ const mamefukuLevels = [
 ];
 
 const state = {
-  mode: "vocabulary",
+  mode: document.body.dataset.mode || "vocabulary",
   questionIndex: 0,
   questionOrders: {},
   xp: 0,
@@ -625,13 +625,6 @@ const elements = {
   mamefukuImage: document.querySelector("#mamefukuImage"),
   cafeLevelLabel: document.querySelector("#cafeLevelLabel"),
   baristaTitle: document.querySelector("#baristaTitle"),
-  nextRewardText: document.querySelector("#nextRewardText"),
-  xpMeterText: document.querySelector("#xpMeterText"),
-  xpBar: document.querySelector("#xpBar"),
-  clearCount: document.querySelector("#clearCount"),
-  itemCount: document.querySelector("#itemCount"),
-  phraseCount: document.querySelector("#phraseCount"),
-  modeTabs: document.querySelector("#modeTabs"),
   modeLabel: document.querySelector("#modeLabel"),
   promptTitle: document.querySelector("#promptTitle"),
   questionBox: document.querySelector("#questionBox"),
@@ -723,29 +716,10 @@ function interiorLevel() {
   return interiorLevels.reduce((current, level) => state.clears >= level.clears ? level : current, interiorLevels[0]);
 }
 
-function renderModeTabs() {
-  elements.modeTabs.innerHTML = "";
-
-  Object.entries(modes).forEach(([key, mode]) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = key === state.mode ? "active" : "";
-    button.innerHTML = `${mode.tab}<span>${mode.label} / ${mode.subtitle}</span>`;
-    button.addEventListener("click", () => {
-      state.mode = key;
-      state.questionIndex = 0;
-      ensureQuestionOrder(key);
-      renderLesson();
-    });
-    elements.modeTabs.appendChild(button);
-  });
-}
-
 function renderLesson() {
   const mode = currentMode();
   const question = currentQuestion();
 
-  renderModeTabs();
   elements.modeLabel.textContent = `${mode.label} ${state.questionIndex + 1}/${mode.questions.length}`;
   elements.promptTitle.textContent = mode.title;
   elements.answerLabel.textContent = question.type === "choice" ? "Choose an answer" : "Your English";
@@ -824,8 +798,6 @@ function submitAnswer(rawAnswer) {
 
   saveProgress();
   renderStats();
-  renderUpgrades();
-  renderPhraseBank();
 }
 
 function goNextQuestion() {
@@ -859,18 +831,14 @@ function triggerUpgradeEffect() {
 function renderStats() {
   const characterLevel = mamefukuLevel();
   const cafeInterior = interiorLevel();
-  const nextUpgrade = interiorLevels.find((level) => state.clears < level.clears);
-  const nextText = nextUpgrade ? `Next Lv.${nextUpgrade.level}: ${nextUpgrade.title} / ${nextUpgrade.clears} clears` : "All cafe interiors unlocked";
 
   elements.totalXp.textContent = state.xp;
-  elements.xpMeterText.textContent = `${state.xp} / 120`;
-  elements.xpBar.style.width = `${Math.min(100, (state.xp / 120) * 100)}%`;
-  elements.clearCount.textContent = state.clears;
-  elements.itemCount.textContent = unlockedCount();
-  elements.phraseCount.textContent = state.phrases.length;
-  elements.nextRewardText.textContent = nextText;
-  elements.cafeLevelLabel.textContent = `Interior Lv.${cafeInterior.level} / Mamefuku Lv.${characterLevel.level}`;
-  elements.baristaTitle.textContent = characterLevel.title;
+  if (elements.cafeLevelLabel) {
+    elements.cafeLevelLabel.textContent = `Interior Lv.${cafeInterior.level} / Mamefuku Lv.${characterLevel.level}`;
+  }
+  if (elements.baristaTitle) {
+    elements.baristaTitle.textContent = characterLevel.title;
+  }
   elements.interiorBack.src = cafeInterior.back;
   elements.interiorFront.src = cafeInterior.front;
   elements.mamefukuImage.src = characterLevel.image;
@@ -880,6 +848,7 @@ function renderStats() {
 }
 
 function renderUpgrades() {
+  if (!elements.upgradeList) return;
   elements.upgradeList.innerHTML = "";
 
   interiorLevels.forEach((upgrade) => {
@@ -895,6 +864,7 @@ function renderUpgrades() {
 }
 
 function renderPhraseBank() {
+  if (!elements.phraseBank) return;
   if (state.phrases.length === 0) {
     elements.phraseBank.innerHTML = `<p class="empty-bank">正解したカフェ英語がここに保存されます。</p>`;
     return;
@@ -936,19 +906,21 @@ elements.answerForm.addEventListener("submit", (event) => {
 
 elements.soundButton.addEventListener("click", speakCurrentEnglish);
 
-elements.resetButton.addEventListener("click", () => {
-  localStorage.removeItem("tripTalkCafe");
-  state.mode = "vocabulary";
-  state.questionIndex = 0;
-  state.questionOrders = {};
-  state.xp = 0;
-  state.clears = 0;
-  state.phrases = [];
-  showFeedback("", "Reset", "カフェの進捗をリセットしました。");
-  renderLesson();
-  renderUpgrades();
-  renderPhraseBank();
-});
+if (elements.resetButton) {
+  elements.resetButton.addEventListener("click", () => {
+    localStorage.removeItem("tripTalkCafe");
+    state.mode = document.body.dataset.mode || "vocabulary";
+    state.questionIndex = 0;
+    state.questionOrders = {};
+    state.xp = 0;
+    state.clears = 0;
+    state.phrases = [];
+    showFeedback("", "Reset", "カフェの進捗をリセットしました。");
+    renderLesson();
+    renderUpgrades();
+    renderPhraseBank();
+  });
+}
 
 loadProgress();
 renderLesson();

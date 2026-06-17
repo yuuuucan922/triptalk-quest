@@ -3,17 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>TripTalk Cafe - Words</title>
+    <title>TripTalk Cafe - Phrases</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body data-mode="vocabulary">
+  <body data-mode="sentence">
     <main class="app-shell">
-      <section class="main-panel" aria-label="Cafe vocabulary lesson">
+      <section class="main-panel" aria-label="Cafe phrase lesson">
         <header class="topbar">
           <div>
-            <p class="kicker">Words</p>
-            <h1>単語学習</h1>
-            <p class="topbar-copy">旅行カフェで使う英単語を、選択問題で覚える。</p>
+            <p class="kicker">Phrases</p>
+            <h1>フレーズ学習</h1>
+            <p class="topbar-copy">日本語を見て、旅行でそのまま使える英文を作る。</p>
           </div>
           <div class="xp-badge" aria-label="Total XP">
             <strong id="totalXp">0</strong>
@@ -22,8 +22,8 @@
         </header>
 
         <nav class="mode-nav" aria-label="Learning pages">
-          <a class="active" href="index.html">単語</a>
-          <a href="phrases.html">フレーズ</a>
+          <a href="index.html">単語</a>
+          <a class="active" href="phrases.html">フレーズ</a>
           <a href="roleplay.html">英会話</a>
         </nav>
 
@@ -38,8 +38,8 @@
         <section class="lesson-card">
           <div class="lesson-head">
             <div>
-              <p class="label" id="modeLabel">Vocabulary</p>
-              <h2 id="promptTitle">Cafe word quiz</h2>
+              <p class="label" id="modeLabel">Sentence</p>
+              <h2 id="promptTitle">Build a useful phrase</h2>
             </div>
             <button class="icon-button" id="soundButton" type="button" aria-label="Read English aloud" title="Read English aloud">
               <span aria-hidden="true">♪</span>
@@ -49,9 +49,9 @@
           <div class="question-box" id="questionBox" aria-live="polite"></div>
 
           <form class="answer-form" id="answerForm">
-            <label for="answerInput" id="answerLabel">Your answer</label>
+            <label for="answerInput" id="answerLabel">Your English</label>
             <div class="answer-row">
-              <input id="answerInput" name="answer" autocomplete="off" placeholder="Type your answer..." />
+              <input id="answerInput" name="answer" autocomplete="off" placeholder="Type your English sentence..." />
               <button type="submit">Send</button>
             </div>
           </form>
@@ -60,7 +60,7 @@
 
           <section class="feedback" id="feedback" aria-live="polite">
             <strong>Ready</strong>
-            <span>今日の単語を1つずつ覚えよう。</span>
+            <span>短い英文を声に出して練習しよう。</span>
           </section>
         </section>
       </section>
