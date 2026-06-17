@@ -355,10 +355,23 @@ function submitAnswer(rawAnswer) {
   if (!answer) return;
 
   if (isCorrect(answer, question)) {
+    const previousInterior = interiorLevel();
+    const previousCharacter = mamefukuLevel();
     state.xp = Math.min(120, state.xp + mode.xp);
     state.clears += 1;
     addPhrase(question.phrase);
-    showFeedback("good", `+${mode.xp} XP`, `正解: ${question.phrase} / 意味: ${question.hint}`);
+    const nextInterior = interiorLevel();
+    const nextCharacter = mamefukuLevel();
+
+    if (nextInterior.level > previousInterior.level) {
+      showFeedback("good level-up", `Cafe Lv.${nextInterior.level} unlocked`, nextInterior.detail);
+      triggerUpgradeEffect();
+    } else if (nextCharacter.level > previousCharacter.level) {
+      showFeedback("good level-up", `Mamefuku Lv.${nextCharacter.level} unlocked`, nextCharacter.title);
+      triggerUpgradeEffect();
+    } else {
+      showFeedback("good", `+${mode.xp} XP`, `正解: ${question.phrase} / 意味: ${question.hint}`);
+    }
     goNextQuestion();
   } else {
     state.xp = Math.min(120, state.xp + 2);
@@ -384,6 +397,16 @@ function showFeedback(kind, title, message) {
   elements.feedback.innerHTML = `<strong>${title}</strong><span>${message}</span>`;
 }
 
+function triggerUpgradeEffect() {
+  elements.cafeStage.classList.remove("is-upgrading");
+  window.requestAnimationFrame(() => {
+    elements.cafeStage.classList.add("is-upgrading");
+  });
+  window.setTimeout(() => {
+    elements.cafeStage.classList.remove("is-upgrading");
+  }, 900);
+}
+
 function renderStats() {
   const characterLevel = mamefukuLevel();
   const cafeInterior = interiorLevel();
@@ -403,7 +426,8 @@ function renderStats() {
   elements.interiorFront.src = cafeInterior.front;
   elements.mamefukuImage.src = characterLevel.image;
   elements.mamefukuImage.alt = characterLevel.alt;
-  elements.cafeStage.className = `cafe-stage interior-${cafeInterior.level}`;
+  const isUpgrading = elements.cafeStage.classList.contains("is-upgrading");
+  elements.cafeStage.className = `cafe-stage interior-${cafeInterior.level}${isUpgrading ? " is-upgrading" : ""}`;
 }
 
 function renderUpgrades() {
