@@ -370,7 +370,7 @@ function renderModeTabs() {
     const button = document.createElement("button");
     button.type = "button";
     button.className = key === state.mode ? "active" : "";
-    button.innerHTML = `${mode.tab}<span>${mode.subtitle}</span>`;
+    button.innerHTML = `${mode.tab}<span>${mode.label} / ${mode.subtitle}</span>`;
     button.addEventListener("click", () => {
       state.mode = key;
       state.questionIndex = 0;
@@ -385,7 +385,7 @@ function renderLesson() {
   const question = currentQuestion();
 
   renderModeTabs();
-  elements.modeLabel.textContent = mode.label;
+  elements.modeLabel.textContent = `${mode.label} ${state.questionIndex + 1}/${mode.questions.length}`;
   elements.promptTitle.textContent = mode.title;
   elements.answerLabel.textContent = question.type === "choice" ? "Choose an answer" : "Your English";
   elements.answerInput.value = "";
@@ -494,7 +494,7 @@ function renderStats() {
   const characterLevel = mamefukuLevel();
   const cafeInterior = interiorLevel();
   const nextUpgrade = interiorLevels.find((level) => state.clears < level.clears);
-  const nextText = nextUpgrade ? `Next: ${nextUpgrade.title} at ${nextUpgrade.clears} clears` : "All interior upgrades unlocked";
+  const nextText = nextUpgrade ? `Next Lv.${nextUpgrade.level}: ${nextUpgrade.title} / ${nextUpgrade.clears} clears` : "All cafe interiors unlocked";
 
   elements.totalXp.textContent = state.xp;
   elements.xpMeterText.textContent = `${state.xp} / 120`;
@@ -521,7 +521,7 @@ function renderUpgrades() {
     const item = document.createElement("div");
     item.className = `upgrade-item ${unlocked ? "unlocked" : ""}`;
     item.innerHTML = `
-      <strong>${unlocked ? "Unlocked" : `${upgrade.clears} clears`} - Lv.${upgrade.level} ${upgrade.title}</strong>
+      <strong>${unlocked ? "Unlocked" : `${upgrade.clears} clears`} / Lv.${upgrade.level} ${upgrade.title}</strong>
       <span>${upgrade.detail}</span>
     `;
     elements.upgradeList.appendChild(item);
