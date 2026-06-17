@@ -526,6 +526,139 @@ const modes = {
   }
 };
 
+const areaModes = {
+  cafe: modes,
+  hotel: {
+    vocabulary: {
+      label: "Vocabulary",
+      title: "Hotel word quiz",
+      tab: "Words",
+      subtitle: "+5 XP",
+      xp: 5,
+      questions: [
+        { type: "choice", prompt: "reservation", hint: "ホテルの予約", answer: "予約", choices: ["予約", "搭乗口", "注文"], phrase: "I have a reservation." },
+        { type: "choice", prompt: "check in", hint: "ホテル到着時の手続き", answer: "チェックイン", choices: ["チェックイン", "会計", "搭乗"], phrase: "I'd like to check in." },
+        { type: "choice", prompt: "check out", hint: "ホテルを出る手続き", answer: "チェックアウト", choices: ["チェックアウト", "予約", "注文"], phrase: "I'd like to check out." },
+        { type: "choice", prompt: "room key", hint: "部屋に入るための鍵", answer: "ルームキー", choices: ["ルームキー", "朝食", "荷物"], phrase: "Could I have my room key?" },
+        { type: "choice", prompt: "front desk", hint: "ホテルの受付", answer: "フロント", choices: ["フロント", "空港", "カフェ"], phrase: "Where is the front desk?" },
+        { type: "choice", prompt: "luggage", hint: "旅行の荷物", answer: "荷物", choices: ["荷物", "鍵", "朝食"], phrase: "Can I leave my luggage here?" },
+        { type: "choice", prompt: "breakfast", hint: "朝に食べる食事", answer: "朝食", choices: ["朝食", "予約", "領収書"], phrase: "Is breakfast included?" },
+        { type: "choice", prompt: "elevator", hint: "上の階へ行く乗り物", answer: "エレベーター", choices: ["エレベーター", "出口", "搭乗券"], phrase: "Where is the elevator?" }
+      ]
+    },
+    sentence: {
+      label: "Sentence",
+      title: "Build a hotel phrase",
+      tab: "Phrases",
+      subtitle: "+12 XP",
+      xp: 12,
+      questions: [
+        { type: "text", prompt: "チェックインしたいです。", hint: "I'd like to ... を使う", answer: "I'd like to check in.", accepted: ["i'd like to check in", "i would like to check in", "check in please"], phrase: "I'd like to check in." },
+        { type: "text", prompt: "予約しています。", hint: "I have ... を使う", answer: "I have a reservation.", accepted: ["i have a reservation", "i've got a reservation", "reservation under"], phrase: "I have a reservation." },
+        { type: "text", prompt: "荷物を預けられますか？", hint: "Can I leave ... ? を使う", answer: "Can I leave my luggage here?", accepted: ["can i leave my luggage here", "could i leave my luggage here", "can i store my luggage"], phrase: "Can I leave my luggage here?" },
+        { type: "text", prompt: "朝食は含まれていますか？", hint: "Is ... included? を使う", answer: "Is breakfast included?", accepted: ["is breakfast included", "breakfast included"], phrase: "Is breakfast included?" },
+        { type: "text", prompt: "Wi-Fiのパスワードは何ですか？", hint: "What is ... ? を使う", answer: "What is the Wi-Fi password?", accepted: ["what is the wifi password", "what is the wi-fi password", "wifi password"], phrase: "What is the Wi-Fi password?" },
+        { type: "text", prompt: "チェックアウトしたいです。", hint: "I'd like to ... を使う", answer: "I'd like to check out.", accepted: ["i'd like to check out", "i would like to check out", "check out please"], phrase: "I'd like to check out." }
+      ]
+    },
+    conversation: {
+      label: "Conversation",
+      title: "Talk at the hotel desk",
+      tab: "Roleplay",
+      subtitle: "+20 XP",
+      xp: 20,
+      questions: [
+        { type: "text", speaker: "Hotel staff", prompt: "Welcome. How can I help you?", hint: "チェックインしたいと伝える", answer: "I'd like to check in.", accepted: ["check in", "i'd like to check in", "i would like to check in"], phrase: "I'd like to check in." },
+        { type: "text", speaker: "Hotel staff", prompt: "Do you have a reservation?", hint: "予約していると答える", answer: "I have a reservation.", accepted: ["i have a reservation", "yes i have a reservation", "reservation"], phrase: "I have a reservation." },
+        { type: "text", speaker: "Hotel staff", prompt: "May I see your passport?", hint: "どうぞと答える", answer: "Sure, here you are.", accepted: ["sure here you are", "here you are", "sure"], phrase: "Sure, here you are." },
+        { type: "text", speaker: "Hotel staff", prompt: "Your room is on the fifth floor.", hint: "ありがとうと答える", answer: "Thank you.", accepted: ["thank you", "thanks"], phrase: "Thank you." },
+        { type: "text", speaker: "Hotel staff", prompt: "Breakfast is from seven to ten.", hint: "場所を聞く", answer: "Where is breakfast?", accepted: ["where is breakfast", "where is the breakfast", "where can i have breakfast"], phrase: "Where is breakfast?" },
+        { type: "text", speaker: "Hotel staff", prompt: "How was your stay?", hint: "良かったと答える", answer: "It was great, thank you.", accepted: ["it was great", "it was good", "great thank you", "good thank you"], phrase: "It was great, thank you." }
+      ]
+    }
+  },
+  airport: {
+    vocabulary: {
+      label: "Vocabulary",
+      title: "Airport word quiz",
+      tab: "Words",
+      subtitle: "+5 XP",
+      xp: 5,
+      questions: [
+        { type: "choice", prompt: "boarding pass", hint: "飛行機に乗るための券", answer: "搭乗券", choices: ["搭乗券", "朝食", "鍵"], phrase: "Here is my boarding pass." },
+        { type: "choice", prompt: "passport", hint: "海外旅行で必要な身分証", answer: "パスポート", choices: ["パスポート", "領収書", "部屋"], phrase: "Here is my passport." },
+        { type: "choice", prompt: "gate", hint: "飛行機に乗る場所", answer: "搭乗口", choices: ["搭乗口", "フロント", "朝食"], phrase: "Where is gate 12?" },
+        { type: "choice", prompt: "baggage", hint: "預ける荷物", answer: "手荷物", choices: ["手荷物", "予約", "メニュー"], phrase: "Where is baggage claim?" },
+        { type: "choice", prompt: "security", hint: "保安検査", answer: "保安検査", choices: ["保安検査", "チェックアウト", "砂糖"], phrase: "Where is security?" },
+        { type: "choice", prompt: "departure", hint: "出発", answer: "出発", choices: ["出発", "朝食", "部屋"], phrase: "What time is departure?" },
+        { type: "choice", prompt: "arrival", hint: "到着", answer: "到着", choices: ["到着", "予約", "支払い"], phrase: "What time is arrival?" },
+        { type: "choice", prompt: "delay", hint: "飛行機が遅れること", answer: "遅延", choices: ["遅延", "席", "鍵"], phrase: "Is the flight delayed?" }
+      ]
+    },
+    sentence: {
+      label: "Sentence",
+      title: "Build an airport phrase",
+      tab: "Phrases",
+      subtitle: "+12 XP",
+      xp: 12,
+      questions: [
+        { type: "text", prompt: "搭乗口はどこですか？", hint: "Where is ... ? を使う", answer: "Where is the gate?", accepted: ["where is the gate", "where is gate"], phrase: "Where is the gate?" },
+        { type: "text", prompt: "搭乗券を見せます。", hint: "Here is ... を使う", answer: "Here is my boarding pass.", accepted: ["here is my boarding pass", "here's my boarding pass"], phrase: "Here is my boarding pass." },
+        { type: "text", prompt: "この便は遅れていますか？", hint: "Is the flight ... ? を使う", answer: "Is the flight delayed?", accepted: ["is the flight delayed", "is my flight delayed"], phrase: "Is the flight delayed?" },
+        { type: "text", prompt: "荷物を預けたいです。", hint: "I'd like to ... を使う", answer: "I'd like to check this bag.", accepted: ["i'd like to check this bag", "i would like to check this bag", "check this bag"], phrase: "I'd like to check this bag." },
+        { type: "text", prompt: "窓側の席がいいです。", hint: "window seat を使う", answer: "I'd like a window seat.", accepted: ["i'd like a window seat", "i would like a window seat", "window seat please"], phrase: "I'd like a window seat." },
+        { type: "text", prompt: "乗り継ぎがあります。", hint: "connecting flight を使う", answer: "I have a connecting flight.", accepted: ["i have a connecting flight", "connecting flight"], phrase: "I have a connecting flight." }
+      ]
+    },
+    conversation: {
+      label: "Conversation",
+      title: "Talk at the airport",
+      tab: "Roleplay",
+      subtitle: "+20 XP",
+      xp: 20,
+      questions: [
+        { type: "text", speaker: "Airport staff", prompt: "May I see your passport?", hint: "どうぞと答える", answer: "Sure, here you are.", accepted: ["sure here you are", "here you are", "sure"], phrase: "Sure, here you are." },
+        { type: "text", speaker: "Airport staff", prompt: "Do you have any bags to check?", hint: "1つあると答える", answer: "Yes, one bag.", accepted: ["yes one bag", "one bag", "i have one bag"], phrase: "Yes, one bag." },
+        { type: "text", speaker: "Airport staff", prompt: "Window or aisle?", hint: "窓側を希望する", answer: "Window, please.", accepted: ["window please", "a window seat please", "window"], phrase: "Window, please." },
+        { type: "text", speaker: "Airport staff", prompt: "Your gate is B12.", hint: "ありがとうと答える", answer: "Thank you.", accepted: ["thank you", "thanks"], phrase: "Thank you." },
+        { type: "text", speaker: "Airport staff", prompt: "Boarding starts at ten thirty.", hint: "搭乗口を確認する", answer: "Where is the gate?", accepted: ["where is the gate", "where is gate"], phrase: "Where is the gate?" },
+        { type: "text", speaker: "Airport staff", prompt: "Your flight is delayed.", hint: "どれくらい遅れるか聞く", answer: "How long is the delay?", accepted: ["how long is the delay", "how long delayed", "how long is it delayed"], phrase: "How long is the delay?" }
+      ]
+    }
+  }
+};
+
+const areaConfigs = {
+  cafe: {
+    label: "Cafe",
+    storageKey: "tripTalkCafe",
+    characterLevels: null,
+    interiors: null
+  },
+  hotel: {
+    label: "Hotel",
+    storageKey: "tripTalkHotel",
+    back: "assets/interiors/hotel/hotel-lobby-back.png",
+    front: "",
+    character: {
+      title: "Hotel Concierge Cat",
+      image: "assets/characters/hotel-cat/hotel-cat.png",
+      alt: "Hotel concierge cat"
+    }
+  },
+  airport: {
+    label: "Airport",
+    storageKey: "tripTalkAirport",
+    back: "assets/interiors/airport/airport-terminal-back.png",
+    front: "",
+    character: {
+      title: "Airport Staff Penguin",
+      image: "assets/characters/airport-penguin/airport-penguin.png",
+      alt: "Airport staff penguin"
+    }
+  }
+};
+
 const interiorLevels = [
   {
     level: 1,
@@ -608,6 +741,7 @@ const mamefukuLevels = [
 ];
 
 const state = {
+  area: document.body.dataset.area || "cafe",
   mode: document.body.dataset.mode || "vocabulary",
   questionIndex: 0,
   questionOrders: {},
@@ -640,7 +774,7 @@ const elements = {
 };
 
 function loadProgress() {
-  const saved = localStorage.getItem("tripTalkCafe");
+  const saved = localStorage.getItem(areaConfig().storageKey);
   if (!saved) return;
 
   try {
@@ -649,20 +783,28 @@ function loadProgress() {
     state.clears = Number(parsed.clears) || 0;
     state.phrases = Array.isArray(parsed.phrases) ? parsed.phrases : [];
   } catch {
-    localStorage.removeItem("tripTalkCafe");
+    localStorage.removeItem(areaConfig().storageKey);
   }
 }
 
 function saveProgress() {
-  localStorage.setItem("tripTalkCafe", JSON.stringify({
+  localStorage.setItem(areaConfig().storageKey, JSON.stringify({
     xp: state.xp,
     clears: state.clears,
     phrases: state.phrases
   }));
 }
 
+function areaConfig() {
+  return areaConfigs[state.area] || areaConfigs.cafe;
+}
+
+function areaModeSet() {
+  return areaModes[state.area] || areaModes.cafe;
+}
+
 function currentMode() {
-  return modes[state.mode];
+  return areaModeSet()[state.mode];
 }
 
 function shuffleArray(items) {
@@ -675,7 +817,7 @@ function shuffleArray(items) {
 }
 
 function buildQuestionOrder(modeKey, previousQuestionIndex = -1) {
-  const order = shuffleArray(modes[modeKey].questions.map((_, index) => index));
+  const order = shuffleArray(areaModeSet()[modeKey].questions.map((_, index) => index));
   if (order.length > 1 && order[0] === previousQuestionIndex) {
     [order[0], order[1]] = [order[1], order[0]];
   }
@@ -685,7 +827,7 @@ function buildQuestionOrder(modeKey, previousQuestionIndex = -1) {
 
 function ensureQuestionOrder(modeKey) {
   const order = state.questionOrders[modeKey];
-  if (!order || order.length !== modes[modeKey].questions.length) {
+  if (!order || order.length !== areaModeSet()[modeKey].questions.length) {
     buildQuestionOrder(modeKey);
   }
 }
@@ -726,7 +868,7 @@ function renderLesson() {
   elements.answerInput.value = "";
   elements.answerInput.placeholder = question.type === "choice" ? "Or type the Japanese meaning..." : "Type your English sentence...";
   elements.questionBox.innerHTML = `
-    <span class="speaker">${question.speaker || "Cafe lesson"}</span>
+    <span class="speaker">${question.speaker || `${areaConfig().label} lesson`}</span>
     <div class="prompt">${question.prompt}</div>
   `;
 
@@ -743,6 +885,7 @@ function renderLesson() {
 
   renderStats();
   elements.answerInput.focus({ preventScroll: true });
+  speakRoleplayPrompt();
 }
 
 function isCorrect(answer, question) {
@@ -761,7 +904,7 @@ function addPhrase(phrase) {
 
   state.phrases.unshift({
     english: phrase,
-    scene: "Cafe"
+    scene: areaConfig().label
   });
   state.phrases = state.phrases.slice(0, 10);
 }
@@ -773,6 +916,7 @@ function submitAnswer(rawAnswer) {
   if (!answer) return;
 
   if (isCorrect(answer, question)) {
+    playCorrectSound();
     const previousInterior = interiorLevel();
     const previousCharacter = mamefukuLevel();
     state.xp = Math.min(120, state.xp + mode.xp);
@@ -792,6 +936,7 @@ function submitAnswer(rawAnswer) {
     }
     goNextQuestion();
   } else {
+    playTrySound();
     state.xp = Math.min(120, state.xp + 2);
     showFeedback("try", "+2 XP", "惜しい。ヒントなしでもう一度考えてみよう。");
   }
@@ -818,6 +963,34 @@ function showFeedback(kind, title, message) {
   elements.feedback.innerHTML = `<strong>${title}</strong><span>${message}</span>`;
 }
 
+function playTone(frequency, duration, type = "sine", volume = 0.08, delay = 0) {
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContext) return;
+
+  const audio = new AudioContext();
+  const oscillator = audio.createOscillator();
+  const gain = audio.createGain();
+  oscillator.type = type;
+  oscillator.frequency.setValueAtTime(frequency, audio.currentTime + delay);
+  gain.gain.setValueAtTime(0, audio.currentTime + delay);
+  gain.gain.linearRampToValueAtTime(volume, audio.currentTime + delay + 0.01);
+  gain.gain.exponentialRampToValueAtTime(0.001, audio.currentTime + delay + duration);
+  oscillator.connect(gain);
+  gain.connect(audio.destination);
+  oscillator.start(audio.currentTime + delay);
+  oscillator.stop(audio.currentTime + delay + duration + 0.02);
+  window.setTimeout(() => audio.close(), (delay + duration + 0.08) * 1000);
+}
+
+function playCorrectSound() {
+  playTone(660, 0.12, "triangle", 0.09, 0);
+  playTone(880, 0.14, "triangle", 0.08, 0.1);
+}
+
+function playTrySound() {
+  playTone(220, 0.12, "sine", 0.055, 0);
+}
+
 function triggerUpgradeEffect() {
   elements.cafeStage.classList.remove("is-upgrading");
   window.requestAnimationFrame(() => {
@@ -829,8 +1002,9 @@ function triggerUpgradeEffect() {
 }
 
 function renderStats() {
-  const characterLevel = mamefukuLevel();
-  const cafeInterior = interiorLevel();
+  const config = areaConfig();
+  const characterLevel = state.area === "cafe" ? mamefukuLevel() : config.character;
+  const cafeInterior = state.area === "cafe" ? interiorLevel() : config;
 
   elements.totalXp.textContent = state.xp;
   if (elements.cafeLevelLabel) {
@@ -840,11 +1014,17 @@ function renderStats() {
     elements.baristaTitle.textContent = characterLevel.title;
   }
   elements.interiorBack.src = cafeInterior.back;
-  elements.interiorFront.src = cafeInterior.front;
+  if (cafeInterior.front) {
+    elements.interiorFront.src = cafeInterior.front;
+    elements.interiorFront.hidden = false;
+  } else {
+    elements.interiorFront.hidden = true;
+  }
   elements.mamefukuImage.src = characterLevel.image;
   elements.mamefukuImage.alt = characterLevel.alt;
   const isUpgrading = elements.cafeStage.classList.contains("is-upgrading");
-  elements.cafeStage.className = `cafe-stage interior-${cafeInterior.level}${isUpgrading ? " is-upgrading" : ""}`;
+  const stageClass = cafeInterior.level ? `interior-${cafeInterior.level}` : `area-${state.area}`;
+  elements.cafeStage.className = `cafe-stage ${stageClass}${isUpgrading ? " is-upgrading" : ""}`;
 }
 
 function renderUpgrades() {
@@ -884,7 +1064,7 @@ function renderPhraseBank() {
 
 function speakCurrentEnglish() {
   const question = currentQuestion();
-  const text = question.type === "choice" ? question.prompt : question.answer;
+  const text = state.mode === "conversation" ? question.prompt : question.type === "choice" ? question.prompt : question.answer;
 
   if (!("speechSynthesis" in window)) {
     showFeedback("try", "Voice unavailable", "このブラウザでは読み上げが使えません。");
@@ -898,6 +1078,11 @@ function speakCurrentEnglish() {
   window.speechSynthesis.speak(utterance);
 }
 
+function speakRoleplayPrompt() {
+  if (state.mode !== "conversation") return;
+  window.setTimeout(speakCurrentEnglish, 180);
+}
+
 elements.answerForm.addEventListener("submit", (event) => {
   event.preventDefault();
   submitAnswer(elements.answerInput.value);
@@ -908,14 +1093,14 @@ elements.soundButton.addEventListener("click", speakCurrentEnglish);
 
 if (elements.resetButton) {
   elements.resetButton.addEventListener("click", () => {
-    localStorage.removeItem("tripTalkCafe");
+    localStorage.removeItem(areaConfig().storageKey);
     state.mode = document.body.dataset.mode || "vocabulary";
     state.questionIndex = 0;
     state.questionOrders = {};
     state.xp = 0;
     state.clears = 0;
     state.phrases = [];
-    showFeedback("", "Reset", "カフェの進捗をリセットしました。");
+    showFeedback("", "Reset", `${areaConfig().label}の進捗をリセットしました。`);
     renderLesson();
     renderUpgrades();
     renderPhraseBank();

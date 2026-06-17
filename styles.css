@@ -233,12 +233,14 @@ h2 {
   font-weight: 850;
 }
 
+.area-nav,
 .mode-nav {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
 }
 
+.area-nav a,
 .mode-nav a {
   min-height: 46px;
   padding: 12px;
@@ -252,6 +254,12 @@ h2 {
   box-shadow: var(--shadow-soft);
 }
 
+.area-nav a {
+  min-height: 42px;
+  background: #f9fbf8;
+}
+
+.area-nav a.active,
 .mode-nav a.active {
   color: white;
   background: var(--green-dark);
@@ -543,6 +551,7 @@ h2 {
     transform: translateX(-50%);
   }
 
+  .area-nav,
   .mode-nav,
   .choice-grid,
   .answer-row {

@@ -3,17 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>TripTalk Cafe - Roleplay</title>
+    <title>TripTalk Airport - Roleplay</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body data-area="cafe" data-mode="conversation">
+  <body data-area="airport" data-mode="conversation">
     <main class="app-shell">
-      <section class="main-panel" aria-label="Cafe conversation lesson">
+      <section class="main-panel" aria-label="Airport roleplay lesson">
         <header class="topbar">
           <div>
-            <p class="kicker">Roleplay</p>
-            <h1>英会話学習</h1>
-            <p class="topbar-copy">バリスタの質問に、英語で短く答える練習。</p>
+            <p class="kicker">Airport / Roleplay</p>
+            <h1>空港英会話</h1>
+            <p class="topbar-copy">ペンギンの空港スタッフに英語で答える。</p>
           </div>
           <div class="xp-badge" aria-label="Total XP">
             <strong id="totalXp">0</strong>
@@ -22,30 +22,30 @@
         </header>
 
         <nav class="area-nav" aria-label="Travel areas">
-          <a class="active" href="index.html">カフェ</a>
+          <a href="index.html">カフェ</a>
           <a href="hotel.html">ホテル</a>
-          <a href="airport.html">空港</a>
+          <a class="active" href="airport.html">空港</a>
         </nav>
 
         <nav class="mode-nav" aria-label="Learning pages">
-          <a href="index.html">単語</a>
-          <a href="phrases.html">フレーズ</a>
-          <a class="active" href="roleplay.html">英会話</a>
+          <a href="airport.html">単語</a>
+          <a href="airport-phrases.html">フレーズ</a>
+          <a class="active" href="airport-roleplay.html">英会話</a>
         </nav>
 
-        <section class="cafe-stage" id="cafeStage" aria-label="Cafe room">
-          <img id="interiorBack" class="interior-layer interior-back" src="assets/interiors/cafe/cafe-lv1-back.png" alt="" />
-          <div class="barista" id="barista" aria-label="Mamefuku character">
-            <img id="mamefukuImage" class="mamefuku-image" src="assets/characters/mamefuku/mamefuku-lv1.png" alt="Mamefuku cafe apprentice" />
+        <section class="cafe-stage" id="cafeStage" aria-label="Airport terminal">
+          <img id="interiorBack" class="interior-layer interior-back" src="assets/interiors/airport/airport-terminal-back.png" alt="" />
+          <div class="barista" id="barista" aria-label="Airport penguin character">
+            <img id="mamefukuImage" class="mamefuku-image" src="assets/characters/airport-penguin/airport-penguin.png" alt="Airport staff penguin" />
           </div>
-          <img id="interiorFront" class="interior-layer interior-front" src="assets/interiors/cafe/cafe-lv1-front.png" alt="" />
+          <img id="interiorFront" class="interior-layer interior-front" src="" alt="" hidden />
         </section>
 
         <section class="lesson-card">
           <div class="lesson-head">
             <div>
               <p class="label" id="modeLabel">Conversation</p>
-              <h2 id="promptTitle">Order from the barista</h2>
+              <h2 id="promptTitle">Talk at the airport</h2>
             </div>
             <button class="icon-button" id="soundButton" type="button" aria-label="Read English aloud" title="Read English aloud">
               <span aria-hidden="true">♪</span>
@@ -66,7 +66,7 @@
 
           <section class="feedback" id="feedback" aria-live="polite">
             <strong>Ready</strong>
-            <span>短く自然に返す練習をしよう。</span>
+            <span>空港スタッフの質問を聞いて、自然に答えよう。</span>
           </section>
         </section>
       </section>
