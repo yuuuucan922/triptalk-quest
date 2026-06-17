@@ -115,32 +115,42 @@ const interiorLevels = [
   {
     level: 1,
     clears: 0,
-    title: "Drip starter",
-    detail: "Simple drip coffee tools and a small counter."
+    title: "Rented cafe corner",
+    detail: "A humble starter cafe with hand-drip tools.",
+    back: "assets/interiors/cafe/cafe-lv1-back.png",
+    front: "assets/interiors/cafe/cafe-lv1-front.png"
   },
   {
     level: 2,
     clears: 3,
-    title: "Table seats",
-    detail: "Adds guest seating and more cups."
+    title: "Tiny permanent cafe",
+    detail: "Adds more cups, beans, and a cleaner counter.",
+    back: "assets/interiors/cafe/cafe-lv2-back.png",
+    front: "assets/interiors/cafe/cafe-lv2-front.png"
   },
   {
     level: 3,
     clears: 7,
-    title: "Coffee grinder",
-    detail: "Adds a grinder and coffee bean tools."
+    title: "Town cafe",
+    detail: "Adds a cozy window, shelves, plants, and cafe decor.",
+    back: "assets/interiors/cafe/cafe-lv3-back.png",
+    front: "assets/interiors/cafe/cafe-lv3-front.png"
   },
   {
     level: 4,
     clears: 12,
-    title: "Coffee machine",
-    detail: "Adds a compact coffee machine."
+    title: "Almost pro cafe",
+    detail: "Adds seating and a compact espresso machine.",
+    back: "assets/interiors/cafe/cafe-lv4-back.png",
+    front: "assets/interiors/cafe/cafe-lv4-front.png"
   },
   {
     level: 5,
     clears: 18,
-    title: "La Marzocco-style espresso machine",
-    detail: "Adds a large professional espresso machine as the cafe centerpiece."
+    title: "Completed cafe",
+    detail: "Adds a large red professional espresso machine.",
+    back: "assets/interiors/cafe/cafe-lv5-back.png",
+    front: "assets/interiors/cafe/cafe-lv5-front.png"
   }
 ];
 
@@ -194,6 +204,8 @@ const elements = {
   totalXp: document.querySelector("#totalXp"),
   cafeStage: document.querySelector("#cafeStage"),
   barista: document.querySelector("#barista"),
+  interiorBack: document.querySelector("#interiorBack"),
+  interiorFront: document.querySelector("#interiorFront"),
   mamefukuImage: document.querySelector("#mamefukuImage"),
   cafeLevelLabel: document.querySelector("#cafeLevelLabel"),
   baristaTitle: document.querySelector("#baristaTitle"),
@@ -387,6 +399,8 @@ function renderStats() {
   elements.nextRewardText.textContent = nextText;
   elements.cafeLevelLabel.textContent = `Interior Lv.${cafeInterior.level} / Mamefuku Lv.${characterLevel.level}`;
   elements.baristaTitle.textContent = characterLevel.title;
+  elements.interiorBack.src = cafeInterior.back;
+  elements.interiorFront.src = cafeInterior.front;
   elements.mamefukuImage.src = characterLevel.image;
   elements.mamefukuImage.alt = characterLevel.alt;
   elements.cafeStage.className = `cafe-stage interior-${cafeInterior.level}`;
