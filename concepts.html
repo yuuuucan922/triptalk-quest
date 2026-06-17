@@ -32,7 +32,8 @@
         padding: 20px 0 32px;
       }
 
-      header {
+      header,
+      .section-heading {
         display: flex;
         align-items: end;
         justify-content: space-between;
@@ -40,10 +41,18 @@
         margin-bottom: 16px;
       }
 
-      h1 {
+      h1,
+      h2 {
         margin: 0;
-        font-size: clamp(1.8rem, 7vw, 3.4rem);
         line-height: 1;
+      }
+
+      h1 {
+        font-size: clamp(1.8rem, 7vw, 3.4rem);
+      }
+
+      h2 {
+        font-size: clamp(1.25rem, 5vw, 2rem);
       }
 
       p {
@@ -63,6 +72,11 @@
         border-radius: 8px;
         padding: 12px;
         box-shadow: 0 18px 44px rgba(36, 43, 38, 0.14);
+      }
+
+      .concept-card + .section-heading,
+      .note + .section-heading {
+        margin-top: 28px;
       }
 
       .concept-card img {
@@ -92,9 +106,32 @@
       <header>
         <div>
           <h1>Concepts</h1>
-          <p>カフェ内装の方向性確認ページ</p>
+          <p>カフェ内装の方向性と重なり確認ページ</p>
         </div>
       </header>
+
+      <div class="section-heading">
+        <div>
+          <h2>Lv1 重なり検証</h2>
+          <p>背景レイヤー、豆福、前面カウンターの順に重ねた検証画像です。</p>
+        </div>
+      </div>
+
+      <section class="concept-card">
+        <img src="assets/concepts/cafe-lv1-layer-preview.png" alt="Cafe level 1 layer overlap preview" />
+      </section>
+
+      <section class="note">
+        <strong>確認ポイント</strong>
+        <p>豆福がカウンターテーブルの後ろに立っているように見えるかを確認します。OKなら、このレイヤー構造をアプリ本体のLv1表示へ反映します。</p>
+      </section>
+
+      <div class="section-heading">
+        <div>
+          <h2>内装方向性</h2>
+          <p>Lv1からLv5までの街カフェ風イメージです。</p>
+        </div>
+      </div>
 
       <section class="concept-card">
         <img src="assets/concepts/cafe-interior-concept.png" alt="Cafe interior concept comparison" />
@@ -102,7 +139,7 @@
 
       <section class="note">
         <strong>確認ポイント</strong>
-        <p>この画像は方向性ラフです。実装素材では、文字なし・豆福なし・Lv1からLv5を別画像として作ります。</p>
+        <p>実装素材では文字なし、説明ラベルなし、背景・豆福・前面カウンターを別画像として作ります。</p>
       </section>
 
       <a class="back" href="index.html">アプリに戻る</a>
