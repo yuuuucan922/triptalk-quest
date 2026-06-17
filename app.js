@@ -37,6 +37,38 @@ const modes = {
         answer: "熱め",
         choices: ["熱め", "甘さ控えめ", "小さいサイズ"],
         phrase: "Could you make it extra hot?"
+      },
+      {
+        type: "choice",
+        prompt: "for here",
+        hint: "店内で飲食するときの表現",
+        answer: "店内で",
+        choices: ["店内で", "持ち帰り", "氷なし"],
+        phrase: "For here, please."
+      },
+      {
+        type: "choice",
+        prompt: "oat milk",
+        hint: "牛乳の代わりに選べる植物性ミルク",
+        answer: "オーツミルク",
+        choices: ["オーツミルク", "紙ナプキン", "砂糖"],
+        phrase: "Can I get that with oat milk?"
+      },
+      {
+        type: "choice",
+        prompt: "less sugar",
+        hint: "甘さを控えめにしたいとき",
+        answer: "砂糖少なめ",
+        choices: ["砂糖少なめ", "熱め", "大きいサイズ"],
+        phrase: "Could you make it less sweet?"
+      },
+      {
+        type: "choice",
+        prompt: "recommend",
+        hint: "おすすめを聞くときに使う動詞",
+        answer: "おすすめする",
+        choices: ["おすすめする", "支払う", "温める"],
+        phrase: "What do you recommend?"
       }
     ]
   },
@@ -70,6 +102,30 @@ const modes = {
         answer: "That's all, thank you.",
         accepted: ["that's all thank you", "that is all thank you", "that's it thank you"],
         phrase: "That's all, thank you."
+      },
+      {
+        type: "text",
+        prompt: "おすすめは何ですか？",
+        hint: "What do you recommend? を使う",
+        answer: "What do you recommend?",
+        accepted: ["what do you recommend", "what would you recommend", "what do you suggest"],
+        phrase: "What do you recommend?"
+      },
+      {
+        type: "text",
+        prompt: "オーツミルクにできますか？",
+        hint: "Can I get that with ... ? を使う",
+        answer: "Can I get that with oat milk?",
+        accepted: ["can i get that with oat milk", "could i get that with oat milk", "with oat milk"],
+        phrase: "Can I get that with oat milk?"
+      },
+      {
+        type: "text",
+        prompt: "レシートをもらえますか？",
+        hint: "Could I have ... ? を使う",
+        answer: "Could I have a receipt?",
+        accepted: ["could i have a receipt", "can i have a receipt", "may i have a receipt"],
+        phrase: "Could I have a receipt?"
       }
     ]
   },
@@ -106,6 +162,33 @@ const modes = {
         answer: "That's all, thank you.",
         accepted: ["that's all", "that is all", "that's it", "no thank you"],
         phrase: "That's all, thank you."
+      },
+      {
+        type: "text",
+        speaker: "Barista",
+        prompt: "What size would you like?",
+        hint: "サイズを答える。例: Small, please.",
+        answer: "Small, please.",
+        accepted: ["small please", "medium please", "large please", "a small please", "a medium please", "a large please"],
+        phrase: "Small, please."
+      },
+      {
+        type: "text",
+        speaker: "Barista",
+        prompt: "Would you like it hot or iced?",
+        hint: "ホットかアイスかを答える",
+        answer: "Iced, please.",
+        accepted: ["iced please", "hot please", "i'll have it iced", "i will have it iced"],
+        phrase: "Iced, please."
+      },
+      {
+        type: "text",
+        speaker: "Barista",
+        prompt: "Your total is five dollars.",
+        hint: "カードで払えるか聞く",
+        answer: "Can I pay by card?",
+        accepted: ["can i pay by card", "could i pay by card", "do you take cards", "card please"],
+        phrase: "Can I pay by card?"
       }
     ]
   }
