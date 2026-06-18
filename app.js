@@ -867,6 +867,7 @@ function renderLesson() {
   elements.answerLabel.textContent = question.type === "choice" ? "Choose an answer" : "Your English";
   elements.answerInput.value = "";
   elements.answerInput.placeholder = question.type === "choice" ? "Or type the Japanese meaning..." : "Type your English sentence...";
+  elements.answerForm.hidden = question.type === "choice";
   elements.questionBox.innerHTML = `
     <span class="speaker">${question.speaker || `${areaConfig().label} lesson`}</span>
     <div class="prompt">${question.prompt}</div>
