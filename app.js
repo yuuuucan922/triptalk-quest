@@ -543,7 +543,23 @@ const areaModes = {
         { type: "choice", prompt: "front desk", hint: "ホテルの受付", answer: "フロント", choices: ["フロント", "空港", "カフェ"], phrase: "Where is the front desk?" },
         { type: "choice", prompt: "luggage", hint: "旅行の荷物", answer: "荷物", choices: ["荷物", "鍵", "朝食"], phrase: "Can I leave my luggage here?" },
         { type: "choice", prompt: "breakfast", hint: "朝に食べる食事", answer: "朝食", choices: ["朝食", "予約", "領収書"], phrase: "Is breakfast included?" },
-        { type: "choice", prompt: "elevator", hint: "上の階へ行く乗り物", answer: "エレベーター", choices: ["エレベーター", "出口", "搭乗券"], phrase: "Where is the elevator?" }
+        { type: "choice", prompt: "elevator", hint: "上の階へ行く乗り物", answer: "エレベーター", choices: ["エレベーター", "出口", "搭乗券"], phrase: "Where is the elevator?" },
+        { type: "choice", prompt: "reception", hint: "ホテルで受付をする場所", answer: "受付", choices: ["受付", "搭乗券", "砂糖"], phrase: "Where is reception?" },
+        { type: "choice", prompt: "concierge", hint: "観光案内や手配を助けるスタッフ", answer: "コンシェルジュ", choices: ["コンシェルジュ", "座席", "注文"], phrase: "Could you ask the concierge?" },
+        { type: "choice", prompt: "single room", hint: "1人用の部屋", answer: "シングルルーム", choices: ["シングルルーム", "朝食", "搭乗口"], phrase: "I booked a single room." },
+        { type: "choice", prompt: "double room", hint: "2人で使う大きめの部屋", answer: "ダブルルーム", choices: ["ダブルルーム", "出口", "領収書"], phrase: "Do you have a double room?" },
+        { type: "choice", prompt: "twin room", hint: "ベッドが2つある部屋", answer: "ツインルーム", choices: ["ツインルーム", "手荷物", "メニュー"], phrase: "I'd like a twin room." },
+        { type: "choice", prompt: "amenities", hint: "歯ブラシなどの備品", answer: "アメニティ", choices: ["アメニティ", "予約", "保安検査"], phrase: "Where are the amenities?" },
+        { type: "choice", prompt: "towels", hint: "体を拭く布", answer: "タオル", choices: ["タオル", "鍵", "遅延"], phrase: "Could I have more towels?" },
+        { type: "choice", prompt: "housekeeping", hint: "部屋を掃除するサービス", answer: "客室清掃", choices: ["客室清掃", "搭乗", "会計"], phrase: "Can I request housekeeping?" },
+        { type: "choice", prompt: "air conditioner", hint: "部屋の温度を調整する機械", answer: "エアコン", choices: ["エアコン", "朝食", "搭乗券"], phrase: "The air conditioner is not working." },
+        { type: "choice", prompt: "safe", hint: "貴重品を入れる箱", answer: "金庫", choices: ["金庫", "カフェ", "搭乗口"], phrase: "Is there a safe in the room?" },
+        { type: "choice", prompt: "checkout time", hint: "ホテルを出る期限の時間", answer: "チェックアウト時間", choices: ["チェックアウト時間", "出発", "注文"], phrase: "What is the checkout time?" },
+        { type: "choice", prompt: "wake-up call", hint: "指定時間に起こしてもらう電話", answer: "モーニングコール", choices: ["モーニングコール", "手荷物", "領収書"], phrase: "Could I get a wake-up call?" },
+        { type: "choice", prompt: "late checkout", hint: "通常より遅く出ること", answer: "レイトチェックアウト", choices: ["レイトチェックアウト", "遅延", "席"], phrase: "Can I have a late checkout?" },
+        { type: "choice", prompt: "deposit", hint: "保証のために預けるお金", answer: "保証金", choices: ["保証金", "搭乗口", "朝食"], phrase: "Do I need to pay a deposit?" },
+        { type: "choice", prompt: "invoice", hint: "支払い内容を書いた書類", answer: "請求書", choices: ["請求書", "部屋", "搭乗券"], phrase: "Could I have an invoice?" },
+        { type: "choice", prompt: "vacancy", hint: "空いている部屋があること", answer: "空室", choices: ["空室", "保安検査", "注文"], phrase: "Do you have any vacancies?" }
       ]
     },
     sentence: {
@@ -558,7 +574,19 @@ const areaModes = {
         { type: "text", prompt: "荷物を預けられますか？", hint: "Can I leave ... ? を使う", answer: "Can I leave my luggage here?", accepted: ["can i leave my luggage here", "could i leave my luggage here", "can i store my luggage"], phrase: "Can I leave my luggage here?" },
         { type: "text", prompt: "朝食は含まれていますか？", hint: "Is ... included? を使う", answer: "Is breakfast included?", accepted: ["is breakfast included", "breakfast included"], phrase: "Is breakfast included?" },
         { type: "text", prompt: "Wi-Fiのパスワードは何ですか？", hint: "What is ... ? を使う", answer: "What is the Wi-Fi password?", accepted: ["what is the wifi password", "what is the wi-fi password", "wifi password"], phrase: "What is the Wi-Fi password?" },
-        { type: "text", prompt: "チェックアウトしたいです。", hint: "I'd like to ... を使う", answer: "I'd like to check out.", accepted: ["i'd like to check out", "i would like to check out", "check out please"], phrase: "I'd like to check out." }
+        { type: "text", prompt: "チェックアウトしたいです。", hint: "I'd like to ... を使う", answer: "I'd like to check out.", accepted: ["i'd like to check out", "i would like to check out", "check out please"], phrase: "I'd like to check out." },
+        { type: "text", prompt: "エレベーターはどこですか？", hint: "Where is ... ? を使う", answer: "Where is the elevator?", accepted: ["where is the elevator", "where's the elevator"], phrase: "Where is the elevator?" },
+        { type: "text", prompt: "タオルをもう少しもらえますか？", hint: "Could I have more ... ? を使う", answer: "Could I have more towels?", accepted: ["could i have more towels", "can i have more towels", "more towels please"], phrase: "Could I have more towels?" },
+        { type: "text", prompt: "部屋のエアコンが動きません。", hint: "... is not working を使う", answer: "The air conditioner is not working.", accepted: ["the air conditioner is not working", "the ac is not working", "air conditioner not working"], phrase: "The air conditioner is not working." },
+        { type: "text", prompt: "チェックアウト時間は何時ですか？", hint: "What is ... ? を使う", answer: "What is the checkout time?", accepted: ["what is the checkout time", "what time is checkout", "checkout time"], phrase: "What is the checkout time?" },
+        { type: "text", prompt: "レイトチェックアウトはできますか？", hint: "Can I have ... ? を使う", answer: "Can I have a late checkout?", accepted: ["can i have a late checkout", "could i have a late checkout", "late checkout"], phrase: "Can I have a late checkout?" },
+        { type: "text", prompt: "部屋に金庫はありますか？", hint: "Is there ... ? を使う", answer: "Is there a safe in the room?", accepted: ["is there a safe in the room", "is there a safe", "safe in the room"], phrase: "Is there a safe in the room?" },
+        { type: "text", prompt: "モーニングコールをお願いできますか？", hint: "Could I get ... ? を使う", answer: "Could I get a wake-up call?", accepted: ["could i get a wake-up call", "can i get a wake-up call", "wake-up call"], phrase: "Could I get a wake-up call?" },
+        { type: "text", prompt: "請求書をもらえますか？", hint: "Could I have ... ? を使う", answer: "Could I have an invoice?", accepted: ["could i have an invoice", "can i have an invoice", "invoice please"], phrase: "Could I have an invoice?" },
+        { type: "text", prompt: "空いている部屋はありますか？", hint: "Do you have any ... ? を使う", answer: "Do you have any vacancies?", accepted: ["do you have any vacancies", "any vacancies", "do you have a room"], phrase: "Do you have any vacancies?" },
+        { type: "text", prompt: "客室清掃をお願いできますか？", hint: "Can I request ... ? を使う", answer: "Can I request housekeeping?", accepted: ["can i request housekeeping", "could i request housekeeping", "housekeeping please"], phrase: "Can I request housekeeping?" },
+        { type: "text", prompt: "保証金は必要ですか？", hint: "Do I need to ... ? を使う", answer: "Do I need to pay a deposit?", accepted: ["do i need to pay a deposit", "need to pay a deposit", "deposit required"], phrase: "Do I need to pay a deposit?" },
+        { type: "text", prompt: "コンシェルジュに聞けますか？", hint: "Could you ask ... ? を使う", answer: "Could you ask the concierge?", accepted: ["could you ask the concierge", "can you ask the concierge", "ask the concierge"], phrase: "Could you ask the concierge?" }
       ]
     },
     conversation: {
@@ -592,7 +620,23 @@ const areaModes = {
         { type: "choice", prompt: "security", hint: "保安検査", answer: "保安検査", choices: ["保安検査", "チェックアウト", "砂糖"], phrase: "Where is security?" },
         { type: "choice", prompt: "departure", hint: "出発", answer: "出発", choices: ["出発", "朝食", "部屋"], phrase: "What time is departure?" },
         { type: "choice", prompt: "arrival", hint: "到着", answer: "到着", choices: ["到着", "予約", "支払い"], phrase: "What time is arrival?" },
-        { type: "choice", prompt: "delay", hint: "飛行機が遅れること", answer: "遅延", choices: ["遅延", "席", "鍵"], phrase: "Is the flight delayed?" }
+        { type: "choice", prompt: "delay", hint: "飛行機が遅れること", answer: "遅延", choices: ["遅延", "席", "鍵"], phrase: "Is the flight delayed?" },
+        { type: "choice", prompt: "check-in counter", hint: "搭乗手続きをするカウンター", answer: "チェックインカウンター", choices: ["チェックインカウンター", "朝食", "客室清掃"], phrase: "Where is the check-in counter?" },
+        { type: "choice", prompt: "aisle seat", hint: "通路側の席", answer: "通路側の席", choices: ["通路側の席", "金庫", "注文"], phrase: "I'd like an aisle seat." },
+        { type: "choice", prompt: "window seat", hint: "窓側の席", answer: "窓側の席", choices: ["窓側の席", "フロント", "領収書"], phrase: "I'd like a window seat." },
+        { type: "choice", prompt: "boarding time", hint: "飛行機に乗り始める時間", answer: "搭乗時間", choices: ["搭乗時間", "朝食", "請求書"], phrase: "What is the boarding time?" },
+        { type: "choice", prompt: "terminal", hint: "空港の建物や区域", answer: "ターミナル", choices: ["ターミナル", "タオル", "予約"], phrase: "Which terminal is it?" },
+        { type: "choice", prompt: "carry-on", hint: "機内に持ち込む荷物", answer: "機内持ち込み荷物", choices: ["機内持ち込み荷物", "空室", "朝食"], phrase: "Is this carry-on okay?" },
+        { type: "choice", prompt: "checked bag", hint: "預けるスーツケース", answer: "預け荷物", choices: ["預け荷物", "エレベーター", "砂糖"], phrase: "I'd like to check this bag." },
+        { type: "choice", prompt: "baggage claim", hint: "到着後に荷物を受け取る場所", answer: "手荷物受取所", choices: ["手荷物受取所", "受付", "メニュー"], phrase: "Where is baggage claim?" },
+        { type: "choice", prompt: "customs", hint: "入国時の税関", answer: "税関", choices: ["税関", "客室清掃", "会計"], phrase: "Where is customs?" },
+        { type: "choice", prompt: "immigration", hint: "入国審査", answer: "入国審査", choices: ["入国審査", "コンシェルジュ", "注文"], phrase: "Where is immigration?" },
+        { type: "choice", prompt: "connection", hint: "別の便に乗り換えること", answer: "乗り継ぎ", choices: ["乗り継ぎ", "朝食", "金庫"], phrase: "I have a connection." },
+        { type: "choice", prompt: "boarding group", hint: "搭乗する順番のグループ", answer: "搭乗グループ", choices: ["搭乗グループ", "空室", "請求書"], phrase: "What is my boarding group?" },
+        { type: "choice", prompt: "flight number", hint: "便を表す番号", answer: "便名", choices: ["便名", "タオル", "部屋"], phrase: "What is the flight number?" },
+        { type: "choice", prompt: "overhead bin", hint: "座席上の荷物入れ", answer: "頭上の荷物棚", choices: ["頭上の荷物棚", "受付", "保証金"], phrase: "Can I use the overhead bin?" },
+        { type: "choice", prompt: "lost and found", hint: "落とし物を扱う場所", answer: "遺失物取扱所", choices: ["遺失物取扱所", "朝食", "注文"], phrase: "Where is lost and found?" },
+        { type: "choice", prompt: "boarding announcement", hint: "搭乗開始などの案内放送", answer: "搭乗案内", choices: ["搭乗案内", "予約", "鍵"], phrase: "Did they announce boarding?" }
       ]
     },
     sentence: {
@@ -607,7 +651,19 @@ const areaModes = {
         { type: "text", prompt: "この便は遅れていますか？", hint: "Is the flight ... ? を使う", answer: "Is the flight delayed?", accepted: ["is the flight delayed", "is my flight delayed"], phrase: "Is the flight delayed?" },
         { type: "text", prompt: "荷物を預けたいです。", hint: "I'd like to ... を使う", answer: "I'd like to check this bag.", accepted: ["i'd like to check this bag", "i would like to check this bag", "check this bag"], phrase: "I'd like to check this bag." },
         { type: "text", prompt: "窓側の席がいいです。", hint: "window seat を使う", answer: "I'd like a window seat.", accepted: ["i'd like a window seat", "i would like a window seat", "window seat please"], phrase: "I'd like a window seat." },
-        { type: "text", prompt: "乗り継ぎがあります。", hint: "connecting flight を使う", answer: "I have a connecting flight.", accepted: ["i have a connecting flight", "connecting flight"], phrase: "I have a connecting flight." }
+        { type: "text", prompt: "乗り継ぎがあります。", hint: "connecting flight を使う", answer: "I have a connecting flight.", accepted: ["i have a connecting flight", "connecting flight"], phrase: "I have a connecting flight." },
+        { type: "text", prompt: "チェックインカウンターはどこですか？", hint: "Where is ... ? を使う", answer: "Where is the check-in counter?", accepted: ["where is the check-in counter", "where is the check in counter", "check-in counter"], phrase: "Where is the check-in counter?" },
+        { type: "text", prompt: "通路側の席がいいです。", hint: "aisle seat を使う", answer: "I'd like an aisle seat.", accepted: ["i'd like an aisle seat", "i would like an aisle seat", "aisle seat please"], phrase: "I'd like an aisle seat." },
+        { type: "text", prompt: "搭乗時間は何時ですか？", hint: "What is ... ? を使う", answer: "What is the boarding time?", accepted: ["what is the boarding time", "what time is boarding", "boarding time"], phrase: "What is the boarding time?" },
+        { type: "text", prompt: "これは機内持ち込みできますか？", hint: "Is this ... okay? を使う", answer: "Is this carry-on okay?", accepted: ["is this carry-on okay", "is this carry on okay", "carry-on okay"], phrase: "Is this carry-on okay?" },
+        { type: "text", prompt: "手荷物受取所はどこですか？", hint: "Where is ... ? を使う", answer: "Where is baggage claim?", accepted: ["where is baggage claim", "where is the baggage claim"], phrase: "Where is baggage claim?" },
+        { type: "text", prompt: "税関はどこですか？", hint: "Where is ... ? を使う", answer: "Where is customs?", accepted: ["where is customs", "where is the customs"], phrase: "Where is customs?" },
+        { type: "text", prompt: "入国審査はどこですか？", hint: "Where is ... ? を使う", answer: "Where is immigration?", accepted: ["where is immigration", "where is the immigration"], phrase: "Where is immigration?" },
+        { type: "text", prompt: "私の搭乗グループは何ですか？", hint: "What is my ... ? を使う", answer: "What is my boarding group?", accepted: ["what is my boarding group", "boarding group"], phrase: "What is my boarding group?" },
+        { type: "text", prompt: "便名は何ですか？", hint: "What is the ... ? を使う", answer: "What is the flight number?", accepted: ["what is the flight number", "flight number"], phrase: "What is the flight number?" },
+        { type: "text", prompt: "頭上の荷物棚を使えますか？", hint: "Can I use ... ? を使う", answer: "Can I use the overhead bin?", accepted: ["can i use the overhead bin", "could i use the overhead bin", "overhead bin"], phrase: "Can I use the overhead bin?" },
+        { type: "text", prompt: "遺失物取扱所はどこですか？", hint: "Where is ... ? を使う", answer: "Where is lost and found?", accepted: ["where is lost and found", "where is the lost and found"], phrase: "Where is lost and found?" },
+        { type: "text", prompt: "搭乗案内はありましたか？", hint: "Did they announce ... ? を使う", answer: "Did they announce boarding?", accepted: ["did they announce boarding", "boarding announcement", "announce boarding"], phrase: "Did they announce boarding?" }
       ]
     },
     conversation: {
